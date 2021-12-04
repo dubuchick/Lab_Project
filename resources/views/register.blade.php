@@ -5,7 +5,7 @@
         <div class="col-10 col-xl-5" >
             <div class="card shadow-2-strong shadow p-4 bg-white rounded" style="border-radius: 1rem;">
                 <div class="card-body p-4 text-center ">
-                    <h3 class=" d-flex justify-content-start mb-4">Login</h3>
+                    <h3 class=" d-flex justify-content-start mb-4">Register</h3>
 
                     <div class="form-outline mb-4 d-flex justify-content-start align-items-center">
                         <div style="background-color: whitesmoke" class="form-outline col-2 p-2" >
@@ -16,18 +16,29 @@
                     
                     <div class="form-outline mb-4 d-flex justify-content-start align-items-center">
                         <div style="background-color: whitesmoke" class="form-outline col-2 p-2" >
+                            <ion-icon name="person-outline" size="large"></ion-icon>
+                        </div>
+                        <input type="text" class="form-control form-control-lg" placeholder="fullname"/>
+                    </div>
+
+                    <div class="form-outline mb-4 d-flex justify-content-start align-items-center">
+                        <div style="background-color: whitesmoke" class="form-outline col-2 p-2" >
                             <ion-icon name="lock-closed-outline"size="large"></ion-icon>
                         </div>
                         <input type="password" class="form-control form-control-lg" placeholder="password"/>
                     </div>
-                    <div class="form-check d-flex">
-                        <input class="form-check-input" type="checkbox" value=""/>
-                        <label class="form-check-label pl-1"> Remember me </label>
+
+                    <div class="form-outline mb-4 d-flex justify-content-start align-items-center">
+                        <div style="background-color: whitesmoke" class="form-outline col-2 p-2" >
+                            <ion-icon name="lock-closed-outline"size="large"></ion-icon>
+                        </div>
+                        <input type="password" class="form-control form-control-lg" placeholder="confirmation password"/>
                     </div>
                 </div>
                 <button class="btn btn-primary btn-lg btn-block align-items-center" type="submit">
-                    <ion-icon name="log-in-outline"></ion-icon>
-                    Login</button>
+                    <ion-icon name="people-outline"></ion-icon>
+                    Register
+                </button>
             </div>
         </div>
     </div>
