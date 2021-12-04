@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class="container-fluid p-1 bg-primary text-white">
+<div class="container-fluid p-1 bg-primary text-white ">
     <div class="row mx-auto my-auto">
         <p class="text-start col-md-6">Book Store</p>
         <p class="text-end col-md-5">Register</p>
@@ -34,13 +34,16 @@
     
     <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 </div>
-<div class="container-fluid p-3 mt-5 bg-primary text-white">
-    <div class="text-start">
-        <small>Current date and time: {{ date("D") }}, {{ date("d M") }}, {{ date("Y") }} {{ date("H:i:a") }}</small>
-    </div>
-    <div class="text-center">
-        <small>&copy {{ date("Y") }} Book Store</small>
+<div class="footer">
+    <div class="container-fluid p-3 mt-5 bg-primary text-white">
+        <div class="text-start">
+            <small>Current date and time: {{ date("D") }}, {{ date("d M") }}, {{ date("Y") }} {{ date("H:i:a") }}</small>
+        </div>
+        <div class="text-center">
+            <small>&copy {{ date("Y") }} Book Store</small>
+        </div>
     </div>
 </div>
+
 </body>
 </html>
