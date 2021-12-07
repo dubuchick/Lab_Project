@@ -17,7 +17,7 @@ class CreateTransactionTable extends Migration
             $table->id();
             $table->date('transactiondate');
             $table->unsignedBigInteger('transactionid');
-            $table->foreign('transactionid')->references('id')->on('transaction');
+            $table->foreign('transactionid')->references('id')->on('transactiondetail');
             $table->unsignedBigInteger('userid');
             $table->foreign('userid')->references('id')->on('user');
         });
