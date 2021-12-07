@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Transaction extends Model
 {
     use HasFactory;
-    public function users(){
-        return $this->belongto(Users::class);
+    public function user(){
+        return $this->belongto(User::class);
+    }
+
+    public function transactiondetail(){
+        return $this->hasMany(TransactionDetail::class);
     }
 }

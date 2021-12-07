@@ -11,12 +11,12 @@ class TransactionDetail extends Model
 
     public function book(){
 
-    	return $this->belongsTo(Book::class, 'bookid');
+    	return $this->belongsTo(Book::class);
     }
 
     public function transaction(){
 
-    	return $this->belongsTo(Transaction::class, 'transactionid');
+    	return $this->belongsTo(Transaction::class);
     }
 
 }

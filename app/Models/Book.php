@@ -11,11 +11,11 @@ class Book extends Model
 
     public function genre(){
 
-    	return $this->hasMany(Genre::class, 'bookid');
+    	return $this->hasMany(Genre::class);
     }
 
     public function transactiondetail(){
 
-    	return $this->hasMany(TransactionDetail::class, 'bookid');
+    	return $this->hasMany(TransactionDetail::class);
     }
 }
