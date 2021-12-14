@@ -30,5 +30,10 @@ class BookController extends Controller
         return redirect()->back();
     }
 
+    public function showBooks(){
+        $books = Book::all();
+        return view('manage', compact('books'));
+    }
+
     
 }

@@ -13,6 +13,8 @@ class GenreSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('genre')->insert([
+            
+        ]);
     }
 }

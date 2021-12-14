@@ -61,18 +61,20 @@
                 <th scope="col">Synopsis</th>
                 <th scope="col">Genre</th>
                 <th scope="col">Price</th>
-                <th scope="col">Synopsis</th>
+                <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
+                @foreach ($books as $b)
                     <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
+                        <td>{{ $b->title }}</td>
+                        <td>{{ $b->author }}</td>
+                        <td>{{ $b->synopsis }}</td>
+                        <td></td>
+                        <td>{{ $b->price }}</td>
+                        <td></td>
                     </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

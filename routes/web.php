@@ -13,10 +13,12 @@ use \App\Http\Controllers\BookController;
 |
 */
 
-Route::get('/', function () {
-    return view('manage');
-});
+// Route::get('/', function () {
+//     return view('manage');
+// });
 
 // Route::get('/manage',[GenreController::class,'displayGenre']);
 
 Route::post('/manage',[BookController::class,'insertBook']);
+// Route::get('',[BookController::class,'showBooks']);
+Route::get('/manage',[BookController::class,'showBooks']);
