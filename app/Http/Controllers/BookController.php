@@ -36,9 +36,18 @@ class BookController extends Controller
     }
     //buat show books di home page
     public function booksHome(){
-        $books = Book::all();
+        // $books = Book::all();
+        $books = Book::paginate(5);
         return view('home', compact('books'));
     }
 
-    
+    public function search(Request $request){
+        $search = $request->search;
+
+        $books = Book::where('title','LIKE','%'.$search.'%')
+                       ->paginate(5)
+                       ->appends(['search'=>$search]);
+        return view('home', compact('books'));
+    }
+
 }

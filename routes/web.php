@@ -23,3 +23,4 @@ Route::post('/manage',[BookController::class,'insertBook']);
 // Route::get('',[BookController::class,'showBooks']);
 Route::get('/manage',[BookController::class,'showBooks']);
 Route::get('/',[BookController::class,'booksHome']);
+Route::get('/search',[BookController::class,'search']);

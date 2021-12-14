@@ -2,18 +2,25 @@
 @section('content')
 <div class="container">
     <div class="row height d-flex justify-content-center align-items-center">
-        <div class="col-md-11">
-                <input type="text" class="form-control">
-        </div>
-        <div class="col-md-auto">
-            <button class="btn btn-primary">Search</button>
-        </div>
+        <form action="/search" method="get">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-md-9">
+                    <input name="search" type="search" class="form-control">
+                </div>
+                <div class="col-md-auto">
+                    <button class="btn btn-primary">Search</button>
+                </div>
+            </div>
+            
+        </form>
         <div class="row mt-4">
-            {{-- <div class="col-1">
+            <div class="col-1">
 
-            </div> --}}
+            </div>
             <div class="col-6">
-                <button class="btn btn-primary">Clear Filter</button>
+                <a href="/">
+                    <button class="btn btn-primary">Clear Filter</button>
+                </a>
             </div>
         </div>
         <div class="row mt-3"></div>
@@ -46,8 +53,8 @@
         </div>
         @endforeach  
     </div>
-    <div class="m-5 d-flex justify-content-center">
-        Page
+    <div class=" m-3 d-flex justify-content-center">
+        {{ $books->links() }}
     </div>
 </div>
 @endsection
