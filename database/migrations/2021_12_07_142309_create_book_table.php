@@ -22,7 +22,6 @@ class CreateBookTable extends Migration
             $table->longText('synopsis');
             $table->string('cover');
             $table->integer('price');
-            $table->timestamps();
         });
     }
 

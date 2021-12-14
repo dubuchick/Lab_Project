@@ -6,19 +6,19 @@
             <div class="row mb-3">
                 <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
-                    <input class="form-control" type="text" aria-label="default input example">
+                    <input class="form-control" type="text" aria-label="default input example" name="title">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Author</label>
                 <div class="col-sm-10">
-                    <input class="form-control" type="text" aria-label="default input example">
+                    <input class="form-control" type="text" aria-label="default input example" name="author">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Synopsis</label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="synopsis"></textarea>
                 </div>
             </div>
             <div class="row mb-3">
@@ -30,6 +30,10 @@
                             <label class="form-check-label me-2" for="flexCheckDefault"+$i>Test</label>
                         </div>
                     @endfor
+                    {{-- @foreach ($genre as $gen)
+                        <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="genre">
+                        <label for="flexCheckDefault" class="form-check-label me-2">{{ $gen->name }}</label>
+                    @endforeach --}}
                 </div>
             </div>
             <div class="row mb-3">
