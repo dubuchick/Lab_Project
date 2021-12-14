@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use \App\Http\Controllers\BookController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,10 +17,15 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/manage', function () {
-    return view('manage');
-});
-
 Route::get('/detail', function () {
     return view('detail');
 });
+// Route::get('/', function () {
+//     return view('manage');
+// });
+
+// Route::get('/manage',[GenreController::class,'displayGenre']);
+
+Route::post('/manage',[BookController::class,'insertBook']);
+// Route::get('',[BookController::class,'showBooks']);
+Route::get('/manage',[BookController::class,'showBooks']);

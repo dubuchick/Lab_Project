@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
+    public $table = "book";
     use HasFactory;
 
+    public $timestamps = false;
     public function genre(){
 
     	return $this->hasMany(Genre::class);
