@@ -29,10 +29,15 @@ class BookController extends Controller
         //ke previous page
         return redirect()->back();
     }
-
+    //buat list books di manage page
     public function showBooks(){
         $books = Book::all();
         return view('manage', compact('books'));
+    }
+    //buat show books di home page
+    public function booksHome(){
+        $books = Book::all();
+        return view('home', compact('books'));
     }
 
     

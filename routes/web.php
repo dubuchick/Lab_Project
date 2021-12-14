@@ -14,7 +14,7 @@ use \App\Http\Controllers\BookController;
 */
 
 // Route::get('/', function () {
-//     return view('manage');
+//     return view('home');
 // });
 
 // Route::get('/manage',[GenreController::class,'displayGenre']);
@@ -22,3 +22,4 @@ use \App\Http\Controllers\BookController;
 Route::post('/manage',[BookController::class,'insertBook']);
 // Route::get('',[BookController::class,'showBooks']);
 Route::get('/manage',[BookController::class,'showBooks']);
+Route::get('/',[BookController::class,'booksHome']);
