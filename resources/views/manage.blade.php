@@ -1,7 +1,8 @@
 @extends('layout')
 @section('content')
     <div class= "p-3 border">
-        <form>
+        <form action="/manage" method="post" enctype="multipart/form-data">
+            {{csrf_field()}}
             <p class="fs-4">Insert Book Form</p>
             <div class="row mb-3">
                 <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Name</label>
@@ -26,7 +27,7 @@
                 <div class="form-check col-sm-2 form-check-inline">
                     @for($i = 0; $i <= 11; $i++)
                         <div class="form-check-inline">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"+$i>
+                            <input class="form-check-input" name="genre" type="checkbox" value="1" id="flexCheckDefault"+$i>
                             <label class="form-check-label me-2" for="flexCheckDefault"+$i>Test</label>
                         </div>
                     @endfor
@@ -39,13 +40,13 @@
             <div class="row mb-3">
                 <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Price</label>
                 <div class="col-sm-10">
-                    <input class="form-control" type="text" aria-label="default input example">
+                    <input class="form-control" name="price" type="text" aria-label="default input example">
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Cover</label>
                 <div class="col-sm-10">
-                    <input class="form-control" type="file" id="formFile">
+                    <input class="form-control" name="cover" type="file" id="formFile">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Import</button>

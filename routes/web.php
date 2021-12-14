@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 // Route::get('/manage',[GenreController::class,'displayGenre']);
+
+Route::post('/manage',[BookController::class,'insertBook']);
