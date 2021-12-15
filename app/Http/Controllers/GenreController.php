@@ -10,6 +10,7 @@ class GenreController extends Controller
     //
     public function displayGenre(){
         $genre = Genre::all();
-        return view('manage',compact('genre'));
+        $books = Book::all();
+        return view('manage',compact('genre','books'));
     }
 }
