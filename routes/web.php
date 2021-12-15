@@ -14,6 +14,13 @@ use \App\Http\Controllers\BookController;
 */
 
 // Route::get('/', function () {
+//     return view('login');
+// });
+
+// Route::get('/detail', function () {
+//     return view('detail');
+// });
+// Route::get('/', function () {
 //     return view('home');
 // });
 
