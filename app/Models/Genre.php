@@ -9,6 +9,7 @@ class Genre extends Model
 {
     public $table = "genre";
     use HasFactory;
+    public $table = "genre";
     public $timestamps = false;
     public function book(){
 

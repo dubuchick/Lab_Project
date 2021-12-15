@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -32,7 +33,8 @@ class BookController extends Controller
     //buat list books di manage page
     public function showBooks(){
         $books = Book::all();
-        return view('manage', compact('books'));
+        $genre = Genre::all();
+        return view('manage', compact('books','genre'));
     }
     //buat show books di home page
     public function booksHome(){
@@ -50,4 +52,8 @@ class BookController extends Controller
         return view('home', compact('books'));
     }
 
+    // public function displayGenre(){
+    //     $genre = Genre::all();
+    //     return view('manage',compact('genre'));
+    // }
 }
