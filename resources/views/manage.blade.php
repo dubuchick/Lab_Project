@@ -48,7 +48,7 @@
             <button type="submit" class="btn btn-primary">Import</button>
         </form>
     </div>
-    {{-- <div>
+    <div>
         <table class="table">
             <thead>
             <tr>
@@ -73,5 +73,5 @@
                 @endforeach
             </tbody>
         </table>
-    </div> --}}
+    </div>
 @endsection

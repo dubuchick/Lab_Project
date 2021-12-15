@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTransactiondetailTable extends Migration
+class CreateTransactiondetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateTransactiondetailTable extends Migration
      */
     public function up()
     {
-        Schema::create('transactiondetail', function (Blueprint $table) {
+        Schema::create('transactiondetails', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('bookid');
-            $table->foreign('bookid')->references('id')->on('book');
+            $table->foreign('bookid')->references('id')->on('books');
             $table->unsignedBigInteger('transactionid');
-            $table->foreign('transactionid')->references('id')->on('transaction');
+            $table->foreign('transactionid')->references('id')->on('transactions');
             $table->integer('quantity');
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ class CreateTransactiondetailTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transactiondetail');
+        Schema::dropIfExists('transactiondetails');
     }
 }

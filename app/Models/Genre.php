@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Genre extends Model
 {
-    public $table = "genre";
     use HasFactory;
     public $timestamps = false;
     public function book(){
