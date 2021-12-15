@@ -21,13 +21,16 @@ use \App\Http\Controllers\BookController;
 //     return view('detail');
 // });
 // Route::get('/', function () {
-//     return view('home');
+//     return view('welcome');
 // });
 
 // Route::get('/manage',[GenreController::class,'displayGenre']);
 
 Route::post('/manage',[BookController::class,'insertBook']);
-// Route::get('',[BookController::class,'showBooks']);
 Route::get('/manage',[BookController::class,'showBooks']);
 Route::get('/',[BookController::class,'booksHome']);
 Route::get('/search',[BookController::class,'search']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

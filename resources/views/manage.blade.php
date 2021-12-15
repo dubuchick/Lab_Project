@@ -27,7 +27,7 @@
                 <div class="form-check col-sm-2 form-check-inline">
                     @for($i = 0; $i <= 11; $i++)
                         <div class="form-check-inline">
-                            <input class="form-check-input" name="genre" type="checkbox" value="1" id="flexCheckDefault"+$i>
+                            <input class="form-check-input" name="genre" type="checkbox" value="" id="flexCheckDefault"+$i>
                             <label class="form-check-label me-2" for="flexCheckDefault"+$i>Test</label>
                         </div>
                     @endfor
