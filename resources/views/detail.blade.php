@@ -50,14 +50,12 @@
 </div>
 <div class= "p-3 border">
     <p class="fs-4">Harry Potter series's Book Detail</p>
-    <div class="cover">
+    <div class="row mb-3">
         <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/Harry_Potter_and_the_Deathly_Hallows.jpg" alt="">
     </div>
-    <div class="detail">
-        <p>Name</p>
-    </div>
-    <div class="input">
-        <p>Harry Potter series</p>
+    <div class="row mb-3">
+        <p class="col-sm-2">Name</p>
+        <p class="col-sm-10">Harry Potter series</p>
     </div>
 </div>
 @endsection

@@ -25,16 +25,12 @@
             <div class="row mb-3">
                 <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Genre(s)</label>
                 <div class="form-check col-sm-2 form-check-inline">
-                    @for($i = 0; $i <= 11; $i++)
+                    @foreach ($genre as $gen)
                         <div class="form-check-inline">
-                            <input class="form-check-input" name="genre" type="checkbox" value="" id="flexCheckDefault"+$i>
-                            <label class="form-check-label me-2" for="flexCheckDefault"+$i>Test</label>
+                            <input class="form-check-input" type="checkbox" id="checkbox{{$gen->id}}" name="genre">
+                            <label for="checkbox{{$gen->id}}" class="form-check-label me-2">{{ $gen->name }}</label>
                         </div>
-                    @endfor
-                    {{-- @foreach ($genre as $gen)
-                        <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="genre">
-                        <label for="flexCheckDefault" class="form-check-label me-2">{{ $gen->name }}</label>
-                    @endforeach --}}
+                    @endforeach
                 </div>
             </div>
             <div class="row mb-3">
@@ -52,7 +48,7 @@
             <button type="submit" class="btn btn-primary">Import</button>
         </form>
     </div>
-    <div>
+    {{-- <div>
         <table class="table">
             <thead>
             <tr>
@@ -77,5 +73,5 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
+    </div> --}}
 @endsection

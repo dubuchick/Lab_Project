@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\BookController;
+use App\Http\Controllers\GenreController;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,13 +27,13 @@ use \App\Http\Controllers\BookController;
 //     return view('welcome');
 // });
 
-// Route::get('/manage',[GenreController::class,'displayGenre']);
+Route::get('/manage',[GenreController::class,'displayGenre']);
 
-Route::post('/manage',[BookController::class,'insertBook']);
-Route::get('/manage',[BookController::class,'showBooks']);
+// Route::post('/manage',[BookController::class,'insertBook']);
+// Route::get('/manage',[BookController::class,'showBooks']);
 Route::get('/',[BookController::class,'booksHome']);
 Route::get('/search',[BookController::class,'search']);
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
