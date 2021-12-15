@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/', function () {
-//     return view('login');
-// });
+Route::get('/genre', function () {
+    return view('genre_detail');
+});
 
 // Route::get('/detail', function () {
 //     return view('detail');
