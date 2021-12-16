@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <a href="" class="btn btn-outline-info">View Details</a>
+                        <a href="/book-detail/{{ $b->id }}" class="btn btn-outline-info">View Details</a>
                     </div>
                 </div>
 

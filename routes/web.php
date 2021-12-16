@@ -16,19 +16,17 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/genre', function () {
-    return view('genre_detail');
-});
-
-// Route::get('/detail', function () {
-//     return view('detail');
-// });
-// Route::get('/', function () {
-//     return view('welcome');
+// Route::get('/insert-genre', function () {
+//     return view('manage_genre');
 // });
 
-Route::get('/manage',[GenreController::class,'displayGenre']);
 
+Route::post('/insert-genre',[GenreController::class,'insertGenre']);
+Route::get('/insert-genre',[GenreController::class,'displayGenre']);
+Route::get('/genre-detail/{id}',[GenreController::class,'showGenreDetail']);
+Route::put('update-genre/{id}',[GenreController::class,'updateGenre']);
+
+Route::get('/book-detail/{id}',[BookController::class,'showBookDetail']);
 Route::post('/manage',[BookController::class,'insertBook']);
 Route::get('/manage',[BookController::class,'showBooks']);
 Route::get('/',[BookController::class,'booksHome']);

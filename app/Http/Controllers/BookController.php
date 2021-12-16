@@ -52,8 +52,8 @@ class BookController extends Controller
         return view('home', compact('books'));
     }
 
-    // public function displayGenre(){
-    //     $genre = Genre::all();
-    //     return view('manage',compact('genre'));
-    // }
+    public function showBookDetail($id){
+        $book = Book::find($id);
+        return view('detail',compact('book'));
+    }
 }
