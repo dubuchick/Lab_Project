@@ -19,10 +19,13 @@
             <p class="">Book Store</p>
         </div>
         <div class="col-md-auto mt-2">
-            <p class="">Register</p>
+            <p class="">View Cart</p>
         </div>
-        <div class="col col-sm-1 mt-2">
-            <p class="">Login</p>
+        <div class="col-md-auto mt-2">
+            <p class="">View Transaction History</p>
+        </div>
+        <div class="col-md-auto mt-2">
+            <p>Hello, member</p>
         </div>
     </div>
 </div>

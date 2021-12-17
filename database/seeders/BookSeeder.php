@@ -99,7 +99,7 @@ class BookSeeder extends Seeder
                 'synopsis'=>'Harry Potter and the Chamber of Secrets is a fantasy novel written by British author J. K. 
                 Rowling and the second novel in the Harry Potter series.',
                 'cover'=>'1639586583.jpg',
-                'price'=>''
+                'price'=>'50000'
             ],
             [
                 'title'=>'Kafka on the Shore',

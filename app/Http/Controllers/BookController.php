@@ -12,7 +12,7 @@ class BookController extends Controller
     public function insertBook(Request $request){
         $book = new Book();
         $book->title = $request->title;
-        $book->genreid = 1;
+        // $book->genreid = $request->genre()->id;
         $book->author = $request->author;
         $book->synopsis = $request->synopsis;
         //image

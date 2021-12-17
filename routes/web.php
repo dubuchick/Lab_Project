@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -16,10 +17,12 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/insert-genre', function () {
-//     return view('manage_genre');
-// });
+Route::get('/layout', function () {
+    return view('layout_member');
+});
 
+Route::get('/login',[UserController::class,'loginPage']);
+Route::post('/login',[UserController::class,'login']);
 
 Route::post('/insert-genre',[GenreController::class,'insertGenre']);
 Route::get('/insert-genre',[GenreController::class,'displayGenre']);
