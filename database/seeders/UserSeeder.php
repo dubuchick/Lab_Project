@@ -18,31 +18,31 @@ class UserSeeder extends Seeder
             [
                 'roleid' => 1,
                 'email' => 'jonathan@gmail.com',
-                'password' => 'password',
+                'password' => bcrypt('password'),
                 'fullname' => 'Jonathan',
             ],
             [
                 'roleid' => 1,
                 'email' => 'leonie@gmail.com',
-                'password' => 'password',
+                'password' => bcrypt('password'),
                 'fullname' => 'Leonie',
             ],
             [
                 'roleid' => 2,
                 'email' => 'harry@gmail.com',
-                'password' => 'password',
+                'password' => bcrypt('password'),
                 'fullname' => 'Harry',
             ],
             [
                 'roleid' => 2,
                 'email' => 'potter@gmail.com',
-                'password' => 'password',
+                'password' => bcrypt('password'),
                 'fullname' => 'Potter',
             ],
             [
                 'roleid' => 2,
                 'email' => 'bray@gmail.com',
-                'password' => 'password',
+                'password' => bcrypt('password'),
                 'fullname' => 'Bray',
             ],
         ]);
