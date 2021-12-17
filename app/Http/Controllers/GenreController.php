@@ -15,8 +15,10 @@ class GenreController extends Controller
         return view('manage_genre',compact('genre'));
     }
 
-    public function delete(){
-
+    public function deleteGenre($id){
+        $genre = Genre::find($id);
+        $genre->delete();
+        return redirect()->back();
     }
 
     public function insertGenre(Request $request){

@@ -24,7 +24,8 @@ use Illuminate\Support\Facades\Auth;
 Route::post('/insert-genre',[GenreController::class,'insertGenre']);
 Route::get('/insert-genre',[GenreController::class,'displayGenre']);
 Route::get('/genre-detail/{id}',[GenreController::class,'showGenreDetail']);
-Route::put('update-genre/{id}',[GenreController::class,'updateGenre']);
+Route::put('/update-genre/{id}',[GenreController::class,'updateGenre']);
+Route::delete('/delete-genre/{id}',[GenreController::class,'deleteGenre']);
 
 Route::get('/book-detail/{id}',[BookController::class,'showBookDetail']);
 Route::post('/manage',[BookController::class,'insertBook']);

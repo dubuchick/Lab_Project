@@ -38,11 +38,27 @@
             <div class="col-md-5">
                 <p>{{ $gen->name }}</p>
             </div>
-            <div class="col md-7">
+            {{-- <div class="col md-7">
                 <a href="/genre-detail/{{ $gen->id }}">
                     <button class="btn btn-sm btn-secondary">View Details</button>
                 </a>
-                <button class="btn btn-sm btn-danger">Delete</button>
+                <form action="/delete-genre/{{ $gen->id }}">
+                <a href="">
+                    <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+                </a>
+                </form>
+            </div> --}}
+            <div class="col sm-1">
+                <a href="/genre-detail/{{ $gen->id }}">
+                    <button class="btn btn-sm btn-secondary">View Details</button>
+                </a>
+            </div>
+            <div class="col sm-1">
+                <form action="/delete-genre/{{ $gen->id }}" method="post">
+                    {{ csrf_field() }}
+                    {{ method_field('delete') }}
+                        <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+                    </form>
             </div>
         </div> 
         @endforeach
