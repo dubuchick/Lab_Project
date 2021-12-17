@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\TransactionDetail;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,8 +17,12 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call([
             GenreSeeder::class,
-            BookSeeder::class
+            RoleSeeder::class,
+            BookSeeder::class,
+            UserSeeder::class,
+            TransactionSeeder::class,
+            TransactionDetailSeeder::class
         ]);
-        
+
     }
 }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class TransactionDetailSeeder extends Seeder
 {
@@ -23,6 +24,11 @@ class TransactionDetailSeeder extends Seeder
                 'bookid'=>'8',
                 'transactionid'=>'2',
                 'quantity'=> '1'
+            ],
+            [
+                'bookid'=>'5',
+                'transactionid'=>'3',
+                'quantity'=> '2'
             ]
         ]);
     }
