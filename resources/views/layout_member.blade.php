@@ -24,9 +24,19 @@
         <div class="col-md-auto mt-2">
             <p class="">View Transaction History</p>
         </div>
-        <div class="col-md-auto mt-2">
+        {{-- <div class="col-md-auto mt-2">
             <p>Hello, member</p>
+        </div> --}}
+        <div class="col-md-auto mt-2">
+                <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Loop</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{{ url('/LB02/for') }}">For</a></li>
+                  <li><a class="dropdown-item" href="{{ url('/LB02/while') }}">While</a></li>
+                  <li><a class="dropdown-item" href="{{ url('/LB02/foreach') }}">Foreach</a></li>
+                  <li><a class="dropdown-item" href="{{ url('/LB02/forelse') }}">Forelse</a></li>
+                </ul>
         </div>
+
     </div>
 </div>
 <div class="container">
