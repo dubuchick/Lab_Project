@@ -23,6 +23,8 @@ Route::get('/layout', function () {
 
 Route::get('/login',[UserController::class,'loginPage']);
 Route::post('/login',[UserController::class,'login']);
+Route::get('/logout',[UserController::class,'logout']);
+
 
 Route::post('/insert-genre',[GenreController::class,'insertGenre']);
 Route::get('/insert-genre',[GenreController::class,'displayGenre']);

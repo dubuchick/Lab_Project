@@ -4,7 +4,11 @@
     <title>Happy Book Store</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    
+
 </head>
 <body>
 
@@ -18,12 +22,31 @@
         <div class="col mt-2">
             <p class="">Book Store</p>
         </div>
+        @auth()
+        <div class="col-md-auto mt-2">
+            <p class="">View Cart</p>
+        </div>
+        <div class="col-md-auto mt-2">
+            <p class="">View Transaction History</p>
+        </div>
+        <div class="col-md-auto mt-2">
+            <a href="/logout" style="color:white">
+                <p href="/logout">Logout</p>
+            </a>
+        </div>
+        @else
         <div class="col-md-auto mt-2">
             <p class="">Register</p>
         </div>
         <div class="col col-sm-1 mt-2">
+            <a href="/login" style="color:white">
             <p class="">Login</p>
+            </a>
         </div>
+        @endauth()
+        {{-- <div class="col-md-auto mt-2">
+            <p>Hello, member</p>
+        </div> --}}
     </div>
 </div>
 <div class="container">
@@ -43,6 +66,7 @@
     </div>
 
     <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
 </div>
 <div class="container-fluid p-3 mt-5 bg-primary text-white">
     <div class="text-start">

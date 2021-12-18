@@ -9,7 +9,7 @@
                 <div class="card-body p-4 text-center ">
                     <h3 class=" d-flex justify-content-start mb-4">Login</h3>
 
-                    <div class="form-outline mb-4 d-flex justify-content-start align-items-center">
+                    <div class="form-outline mb-4 d-flex justify-content-start ">
                         <div style="background-color: whitesmoke" class="form-outline col-2 p-2" >
                             <ion-icon name="mail-outline" size="large"></ion-icon>
                         </div>
@@ -23,8 +23,8 @@
                         <input type="password" class="form-control form-control-lg" placeholder="password" name="password"/>
                     </div>
                     <div class="form-check d-flex">
-                        <input class="form-check-input" type="checkbox" value=""/>
-                        <label class="form-check-label pl-1"> Remember me </label>
+                        <input class="form-check-input" type="checkbox" value="" name="remember"/>
+                        Remember me
                     </div>
                 </div>
                 <button class="btn btn-primary btn-lg btn-block align-items-center" type="submit">
