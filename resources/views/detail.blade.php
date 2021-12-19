@@ -2,40 +2,46 @@
 @section('content')
 <div class= "p-3 border">
     <form>
-        <p class="fs-4">Harry Potter series's Book Detail</p>
+        <p class="fs-4">{{ $book->title }}'s Book Detail</p>
         <div class="row mb-3">
             <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-10">
-                <input class="form-control" type="text" aria-label="default input example" value="Harry Potter series">
+                <input class="form-control" type="text" aria-label="default input example" value="{{ $book->title }}">
             </div>
         </div>
         <div class="row mb-3">
             <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Author</label>
             <div class="col-sm-10">
-                <input class="form-control" type="text" aria-label="default input example" value="J.K Rowling">
+                <input class="form-control" type="text" aria-label="default input example" value="{{ $book->author}}">
             </div>
         </div>
         <div class="row mb-3">
             <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Synopsis</label>
             <div class="col-sm-10">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="10">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque nulla placeat minus ratione magnam quaerat accusantium fugiat a molestias maxime? Suscipit possimus repellendus, laborum dolore pariatur ipsa optio fugiat ab!</textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="10">{{ $book->synopsis}}</textarea>
             </div>
         </div>
         <div class="row mb-3">
             <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Genre(s)</label>
-            <div class="form-check col-sm-2 form-check-inline">
-                @for($i = 0; $i <= 11; $i++)
-                    <div class="form-check-inline">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"+$i>
-                        <label class="form-check-label me-2" for="flexCheckDefault"+$i>Test</label>
-                    </div>
-                @endfor
+            <div class="col-sm-9">
+                <div class="row">
+                    @foreach($genre as $genres)
+                        <div class="col-md-4">
+                            @if ($genres->id ==  $book->genreid)
+                                <input class="form-check-input" type="checkbox" value="" id="{{ $genres->name}}" checked>
+                            @else
+                                <input class="form-check-input" type="checkbox" value="" id="{{ $genres->name}}">
+                            @endif
+                            <label class="form-check-label me-2" for="{{ $genres->name }}">{{ $genres->name}}</label>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
         <div class="row mb-3">
             <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Price</label>
             <div class="col-sm-10">
-                <input class="form-control" type="text" aria-label="default input example" value="73700">
+                <input class="form-control" type="text" aria-label="default input example" value="{{ $book->price}}">
             </div>
         </div>
         <div class="row mb-3">
