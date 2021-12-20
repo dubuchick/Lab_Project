@@ -54,7 +54,7 @@ class BookController extends Controller
 
     public function showBookDetail($id){
         $book = Book::find($id);
-        $genre = Genre::all();
-        return view('detail',compact('book', 'genre'));
+        $genres = Genre::all();
+        return view('detail',compact('book', 'genres'));
     }
 }
