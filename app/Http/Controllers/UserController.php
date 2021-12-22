@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -36,10 +37,17 @@ class UserController extends Controller
     }
 
     public function register(Request $request){
+        $validation = [
+            'email' => 'required|email',
+            'fullname' => 'required',
+            'vat_number' => 'max:13',
+            'password' => 'required|confirmed|min:8',
+            'password_confirmation' =>'min:8'
+        ];
         $user = new User();
         $user->roleid = 2;
         $user->email = $request->email;
-        $user->password= $request->password;
+        $user->password= Hash::make($request->password);
         $user->fullname = $request->fullname;
         //confirm_pass
         $user->save();

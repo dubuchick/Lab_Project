@@ -50,20 +50,19 @@
         <div class="row mb-3">
             <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Cover</label>
             <div class="col-sm-10">
-                <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/Harry_Potter_and_the_Deathly_Hallows.jpg" alt="">
+                <img src="{{\Illuminate\Support\Facades\Storage::url($book->cover)}}" alt=""style="width: 13rem; height: 18rem;">
                 <input class="form-control" type="file" id="formFile">
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
 </div>
-    
-    @elseif(Auth::check() || auth()->user()->roleid == '2')
+    @elseif(auth()->user()->roleid == '2')
 <div class= "p-3 border">
     <p class="fs-4">{{ $book->title }}'s Book Detail</p>
     <div class="row">
         <div class="col-sm-2 ms-4">
-            <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/Harry_Potter_and_the_Deathly_Hallows.jpg" alt="">
+            <img src="{{\Illuminate\Support\Facades\Storage::url($book->cover)}}" alt=""style="width: 13rem; height: 18rem;">
         </div>
         <div class="col-sm-9 ms-5">
             <div class="row">
@@ -104,7 +103,7 @@
     <p class="fs-4">{{ $book->title }}'s Book Detail</p>
     <div class="row">
         <div class="col-sm-2 ms-4">
-            <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/Harry_Potter_and_the_Deathly_Hallows.jpg" alt="">
+            <img src="{{\Illuminate\Support\Facades\Storage::url($book->cover)}}" alt=""style="width: 13rem; height: 18rem;">
         </div>
         <div class="col-sm-9 ms-5">
             <div class="row">

@@ -31,7 +31,8 @@ class GenreController extends Controller
 
     public function showGenreDetail($id){
         $genre = Genre::find($id);
-        return view('genre_detail',compact('genre'));
+        $book = Book::all();
+        return view('genre_detail',compact('genre','book'));
     }
 
     public function updateGenre(Request $request, $id){

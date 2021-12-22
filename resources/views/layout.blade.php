@@ -27,7 +27,8 @@
                 <div class="col-md-auto mt-2">
                     <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" style="color: white">Manage</a>
                         <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/insert-genre') }}">Manage Genre</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/insert-genre') }}">Manage User</a></li>
                         </ul>
                 </div>
                 <div class="col-md-auto mt-2">

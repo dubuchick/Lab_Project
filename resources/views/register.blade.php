@@ -34,7 +34,7 @@
                         <div style="background-color: whitesmoke" class="form-outline col-2 p-2" >
                             <ion-icon name="lock-closed-outline"size="large"></ion-icon>
                         </div>
-                        <input type="password" class="form-control form-control-lg" placeholder="confirmation password"/>
+                        <input type="password" class="form-control form-control-lg" placeholder="confirmation password" name="password_confirmation"/>
                     </div>
                 </div>
                 <button class="btn btn-primary btn-lg btn-block align-items-center" type="submit">

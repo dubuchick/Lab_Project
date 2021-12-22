@@ -33,16 +33,21 @@
                 Action
             </div>
         </div>
+        @foreach ($book as $b)
         <div class="row">
             <hr>
         </div>
         <div class="row">
             <div class="col-md-8">
-                <p>Namanya</p>
+                <p>{{ $b->title }}</p>
             </div>
             <div class="col md-3">
-                <button class="btn btn-sm btn-secondary">View Book Details</button>
+                <a href="/book-detail/{{ $b->id }}">
+                    <button class="btn btn-sm btn-secondary">View Book Details</button>
+                </a>   
             </div>
         </div>
+        @endforeach
+        
     </div>
 @endsection
