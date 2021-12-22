@@ -34,6 +34,7 @@ class BookController extends Controller
     public function showBooks(){
         $books = Book::all();
         $genre = Genre::all();
+        // $user = User::all();
         return view('manage', compact('books','genre'));
     }
     //buat show books di home page
@@ -57,4 +58,5 @@ class BookController extends Controller
         $genres = Genre::all();
         return view('detail',compact('book', 'genres'));
     }
+
 }

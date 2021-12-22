@@ -1,5 +1,8 @@
 @extends('layout')
 @section('content')
+
+@if(Auth::check())
+    @if(auth()->user()->roleid == '1')
 <div class= "p-3 border">
     <form>
         <p class="fs-4">{{ $book->title }}'s Book Detail</p>
@@ -54,6 +57,8 @@
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
 </div>
+    
+    @elseif(Auth::check() || auth()->user()->roleid == '2')
 <div class= "p-3 border">
     <p class="fs-4">{{ $book->title }}'s Book Detail</p>
     <div class="row">
@@ -93,6 +98,8 @@
         </div>
     </div>
 </div>
+@endif
+@else
 <div class= "p-3 border">
     <p class="fs-4">{{ $book->title }}'s Book Detail</p>
     <div class="row">
@@ -123,4 +130,5 @@
         </div>
     </div>
 </div>
+@endif
 @endsection

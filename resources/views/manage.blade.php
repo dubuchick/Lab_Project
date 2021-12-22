@@ -66,7 +66,7 @@
                         <td>{{ $b->title }}</td>
                         <td>{{ $b->author }}</td>
                         <td>{{ $b->synopsis }}</td>
-                        <td></td>
+                        <td>{{ $genre[ $b->genreid - 1]->name }}</td>
                         <td>{{ $b->price }}</td>
                         <td></td>
                     </tr>
