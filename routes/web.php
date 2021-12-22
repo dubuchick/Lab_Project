@@ -20,8 +20,9 @@ use Illuminate\Support\Facades\Auth;
 // Route::get('/layout', function () {
 //     return view('layout_member');
 // });
-
-Route::get('/login',[UserController::class,'loginPage']);
+Route::group(['middleware'=>'guest'],function(){
+    Route::get('/login',[UserController::class,'loginPage']);
+});
 Route::post('/login',[UserController::class,'login']);
 Route::get('/logout',[UserController::class,'logout']);
 Route::post('/register',[UserController::class,'register']);
@@ -41,4 +42,4 @@ Route::get('/search',[BookController::class,'search']);
 
 // Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

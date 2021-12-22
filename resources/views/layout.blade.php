@@ -23,26 +23,38 @@
             <p class="">Book Store</p>
         </div>
         @auth()
-        <div class="col-md-auto mt-2">
-            <p class="">View Cart</p>
-        </div>
-        <div class="col-md-auto mt-2">
-            <p class="">View Transaction History</p>
-        </div>
-        {{-- <div class="col-md-auto mt-2">
-            <a href="/logout" style="color:white">
-                <p href="/logout">Logout</p>
-            </a>
-        </div> --}}
-        <div class="col-md-auto mt-2">
-            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" style="color: white">Loop</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
-                </ul>
-        </div>
+            @if(auth()->user()->roleid == '1')
+                <div class="col-md-auto mt-2">
+                    <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" style="color: white">Manage</a>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
+                        </ul>
+                </div>
+                <div class="col-md-auto mt-2">
+                    <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" style="color: white">Hello, admin</a>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
+                        </ul>
+                </div>
+            @endif
+            @if(auth()->user()->roleid == '2')
+                <div class="col-md-auto mt-2">
+                    <p class="">View Cart</p>
+                </div>
+                <div class="col-md-auto mt-2">
+                    <p class="">View Transaction History</p>
+                </div>
+                <div class="col-md-auto mt-2">
+                    <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" style="color: white">Hello, member</a>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
+                        </ul>
+                </div>
+            @endif
+        
         @else
         <div class="col-md-auto mt-2">
-            <a href="/register">
+            <a href="/register" style="color: white">
                 <p class="">Register</p>
             </a>
         </div>
