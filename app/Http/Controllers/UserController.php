@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
@@ -57,6 +58,18 @@ class UserController extends Controller
 
     public function registerPage(){
         return view('register');
+    }
+
+    public function displayUser(){
+        $user = User::all();
+        $role = Role::all();
+        return view('manage_user',compact('user','role'));
+    }
+
+    public function deleteUser($id){
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->back();
     }
 
 }

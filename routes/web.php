@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 // Route::get('/layout', function () {
-//     return view('layout_member');
+//     return view('manage_user');
 // });
 Route::group(['middleware'=>'guest'],function(){
     Route::get('/login',[UserController::class,'loginPage']);
@@ -29,8 +29,10 @@ Route::group(['middleware'=>'admin'],function(){
     Route::get('/insert-genre',[GenreController::class,'displayGenre']);
     Route::get('/genre-detail/{id}',[GenreController::class,'showGenreDetail']);
     Route::get('/manage',[BookController::class,'showBooks']);
+    Route::get('/manage-user',[UserController::class,'displayUser']);
 });
 
+Route::delete('/delete-user/{id}',[UserController::class,'deleteUser']);
 Route::post('/login',[UserController::class,'login']);
 Route::get('/logout',[UserController::class,'logout']);
 Route::post('/register',[UserController::class,'register']);

@@ -30,10 +30,10 @@
                 Action
             </div>
         </div>
+        @foreach ( $genre as $gen )
         <div class="row">
             <hr>
         </div>
-        @foreach ( $genre as $gen )
         <div class="row">
             <div class="col-md-5">
                 <p>{{ $gen->name }}</p>
@@ -48,7 +48,7 @@
                 </a>
                 </form>
             </div> --}}
-            <div class="col sm-1">
+            <div class="col-sm-auto">
                 <a href="/genre-detail/{{ $gen->id }}">
                     <button class="btn btn-sm btn-secondary">View Details</button>
                 </a>
