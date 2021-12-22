@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class User extends \Illuminate\Foundation\Auth\User
 {
     use HasFactory;
-
+    public $timestamps = false;
     public function role(){
         return $this->belongsTo(Role::class);
     }

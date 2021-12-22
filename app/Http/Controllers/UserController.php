@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
@@ -34,8 +35,20 @@ class UserController extends Controller
         return redirect('/');
     }
 
-    // public function showUser(){
-    //     $user = User::all();
-    //     return view('layout',compact('user'));
-    // }
+    public function register(Request $request){
+        $user = new User();
+        $user->roleid = 2;
+        $user->email = $request->email;
+        $user->password= $request->password;
+        $user->fullname = $request->fullname;
+        //confirm_pass
+        $user->save();
+
+        return redirect()->back();
+    }
+
+    public function registerPage(){
+        return view('register');
+    }
+
 }

@@ -17,14 +17,15 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/layout', function () {
-    return view('layout_member');
-});
+// Route::get('/layout', function () {
+//     return view('layout_member');
+// });
 
 Route::get('/login',[UserController::class,'loginPage']);
 Route::post('/login',[UserController::class,'login']);
 Route::get('/logout',[UserController::class,'logout']);
-
+Route::post('/register',[UserController::class,'register']);
+Route::get('/register',[UserController::class,'registerPage']);
 
 Route::post('/insert-genre',[GenreController::class,'insertGenre']);
 Route::get('/insert-genre',[GenreController::class,'displayGenre']);

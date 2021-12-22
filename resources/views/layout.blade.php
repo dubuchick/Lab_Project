@@ -29,14 +29,22 @@
         <div class="col-md-auto mt-2">
             <p class="">View Transaction History</p>
         </div>
-        <div class="col-md-auto mt-2">
+        {{-- <div class="col-md-auto mt-2">
             <a href="/logout" style="color:white">
                 <p href="/logout">Logout</p>
             </a>
+        </div> --}}
+        <div class="col-md-auto mt-2">
+            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" style="color: white">Loop</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
+                </ul>
         </div>
         @else
         <div class="col-md-auto mt-2">
-            <p class="">Register</p>
+            <a href="/register">
+                <p class="">Register</p>
+            </a>
         </div>
         <div class="col col-sm-1 mt-2">
             <a href="/login" style="color:white">
