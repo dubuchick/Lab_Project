@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Auth;
 
 class UserController extends Controller
 {
@@ -71,5 +72,19 @@ class UserController extends Controller
         $user->delete();
         return redirect()->back();
     }
-
+    
+    public function profilePage(){
+        $user = User::all();
+        $role = Role::all();
+        // $user = Auth::user();
+        // var_dump($user->id);
+        // var_dump($user->fullname);
+        return view('profile',compact('user','role'));
+    }
+    
+    public function userDetail($id){
+        $user = User::find($id);
+        $role = Role::all();
+        return view('user_detail',compact('user','role'));
+    }
 }

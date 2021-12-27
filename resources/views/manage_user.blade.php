@@ -28,10 +28,11 @@
                 <p>{{ $role[$u->roleid -1]->rolename }}</p>
             </div>
             <div class="col-sm-auto">
-                <a href="#">
+                <a href="/user-detail/{{ $u->id }}">
                     <button class="btn btn-sm btn-secondary">View Detail</button>
                 </a>
             </div>
+            @if($u->roleid == '1')
             <div class="col sm-1">
                 <form action="/delete-user/{{ $u->id }}" method="post">
                     {{ csrf_field() }}
@@ -39,6 +40,7 @@
                         <button class="btn btn-sm btn-danger" type="submit">Delete</button>
                     </form>
             </div>
+            @endif
         </div> 
         @endforeach
     </div>
