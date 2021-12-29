@@ -17,7 +17,7 @@ class CreateBooksTable extends Migration
             $table->id();
             $table->string('title');
             $table->unsignedBigInteger('genreid');
-            $table->foreign('genreid')->references('id')->on('genres');
+            $table->foreign('genreid')->references('id')->on('genres')->onDelete('cascade');
             $table->string('author');
             $table->longText('synopsis');
             $table->string('cover');

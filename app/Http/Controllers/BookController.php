@@ -59,4 +59,10 @@ class BookController extends Controller
         return view('detail',compact('book', 'genres'));
     }
 
+    public function deleteBook($id){
+        $book = Book::find($id);
+        $book->delete();
+        return redirect()->back();
+    }
+
 }

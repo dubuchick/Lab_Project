@@ -68,7 +68,13 @@
                         <td>{{ $b->synopsis }}</td>
                         <td>{{ $genre[ $b->genreid - 1]->name }}</td>
                         <td>{{ $b->price }}</td>
-                        <td></td>
+                        <td><div class="col sm-1">
+                            <form action="/delete-book/{{ $b->id }}" method="post">
+                                {{ csrf_field() }}
+                                {{ method_field('delete') }}
+                                    <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+                                </form>
+                        </div></td>
                     </tr>
                 @endforeach
             </tbody>

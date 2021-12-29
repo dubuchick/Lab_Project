@@ -29,6 +29,7 @@
                         <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ url('/insert-genre') }}">Manage Genre</a></li>
                         <li><a class="dropdown-item" href="{{ url('/manage-user') }}">Manage User</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/manage-book') }}">Manage Books</a></li>
                         </ul>
                 </div>
                 <div class="col-md-auto mt-2">

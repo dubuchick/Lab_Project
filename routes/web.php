@@ -29,7 +29,7 @@ Route::group(['middleware'=>'guest'],function(){
 Route::group(['middleware'=>'admin'],function(){
     Route::get('/insert-genre',[GenreController::class,'displayGenre']);
     Route::get('/genre-detail/{id}',[GenreController::class,'showGenreDetail']);
-    Route::get('/manage',[BookController::class,'showBooks']);
+    Route::get('/manage-book',[BookController::class,'showBooks']);
     Route::get('/manage-user',[UserController::class,'displayUser']);
     Route::get('/user-detail/{id}',[UserController::class,'userDetail']);
 });
@@ -45,7 +45,8 @@ Route::put('/update-genre/{id}',[GenreController::class,'updateGenre']);
 Route::delete('/delete-genre/{id}',[GenreController::class,'deleteGenre']);
 
 Route::get('/book-detail/{id}',[BookController::class,'showBookDetail']);
-Route::post('/manage',[BookController::class,'insertBook']);
+Route::post('/manage-book',[BookController::class,'insertBook']);
+Route::delete('/delete-book/{id}',[BookController::class,'deleteBook']);
 Route::get('/',[BookController::class,'booksHome']);
 Route::get('/search',[BookController::class,'search']);
 

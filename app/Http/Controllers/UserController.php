@@ -76,9 +76,6 @@ class UserController extends Controller
     public function profilePage(){
         $user = User::all();
         $role = Role::all();
-        // $user = Auth::user();
-        // var_dump($user->id);
-        // var_dump($user->fullname);
         return view('profile',compact('user','role'));
     }
     
@@ -87,4 +84,5 @@ class UserController extends Controller
         $role = Role::all();
         return view('user_detail',compact('user','role'));
     }
+
 }
