@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
@@ -85,4 +86,9 @@ class UserController extends Controller
         return view('user_detail',compact('user','role'));
     }
 
+    public function transactionHistory(){
+        $transaction = Transaction::all();
+        $user = User::all();
+        return view('transaction_history',compact('transaction','user'));
+    }
 }

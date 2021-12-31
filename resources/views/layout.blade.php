@@ -45,7 +45,9 @@
                     <p class="">View Cart</p>
                 </div>
                 <div class="col-md-auto mt-2">
+                    <a href="/transaction-history" style="color: white">
                     <p class="">View Transaction History</p>
+                    </a>
                 </div>
                 <div class="col-md-auto mt-2">
                     <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" style="color: white">Hello, member</a>

@@ -50,6 +50,7 @@ Route::delete('/delete-book/{id}',[BookController::class,'deleteBook']);
 Route::get('/',[BookController::class,'booksHome']);
 Route::get('/search',[BookController::class,'search']);
 
+Route::get('/transaction-history',[UserController::class,'transactionHistory']);
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

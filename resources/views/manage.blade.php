@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
     <div class= "p-3 border">
-        <form action="/manage" method="post" enctype="multipart/form-data">
+        <form action="/manage-book" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
             <p class="fs-4">Insert Book Form</p>
             <div class="row mb-3">
