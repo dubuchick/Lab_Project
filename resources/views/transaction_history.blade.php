@@ -30,14 +30,11 @@
                     <p></p>
                 </div>
                 <div class="col-sm-auto">
-                    <a href="#">
+                    <a href="{{ url('/transaction-detail') }}">
                         <button class="btn btn-sm btn-secondary">View Transaction Detail</button>
                     </a>
                 </div>
-            
-        @else
-        
-        @endif
+            @endif
         @endforeach
     </div> 
     </div>

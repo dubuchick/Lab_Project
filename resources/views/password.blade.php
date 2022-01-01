@@ -6,39 +6,40 @@
             <h3>Profile</h3>
             
         </div>
-        <form action="/update-profile/{{ $user->id }}" enctype="multipart/form-data" method="POST">
+        <form action="/change-password/{{ $user->id }}" enctype="multipart/form-data" method="POST">
         {{ method_field('put') }}
         {{ csrf_field() }}
         <div class="row mt-3">
             <div class="col-md-4">
-                <p>Name</p>
+                <p>Old Password</p>
             </div>
             <div class="col-md-6">
-                <input type="text" placeholder="{{ $user->fullname}}" class="form-control" name="fullname">
+                <input type="password" placeholder="" class="form-control" name="fullname">
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-md-4">
-                <p>Email</p>
+                <p>New Password</p>
             </div>
             <div class="col-md-6">
-                <p>{{ $user->email }}</p>
+                <input type="password" placeholder="" class="form-control" name="fullname">
             </div>
         </div>
         <div class="row mt-3">
+            <div class="col-md-4">
+                <p>New Confirmation Password</p>
+            </div>
+            <div class="col-md-6">
+                <input type="password" placeholder="" class="form-control" name="fullname">
+            </div>
+        </div>
+        <div class="row mt-3 mb-3">
             <div class="col-md-8"></div>
-            <div class="col-md-3">
+            <div class="col-md-auto">
                 <button type="submit" class="btn btn-primary">Update</button>
             </div> 
-        </form>
         </div>
-        <div class="col-md-auto">
-            <a href="{{ url('/change-password') }}">
-                <button class="btn btn-primary">Change Password</button>
-            </a>
-        </div> 
-        
-            
+        </form>
         
     </div>
 @endsection

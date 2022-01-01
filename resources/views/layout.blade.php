@@ -52,6 +52,7 @@
                 <div class="col-md-auto mt-2">
                     <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" style="color: white">Hello, member</a>
                         <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url('/profile-page') }}">Edit Profile</a></li>
                         <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
                         </ul>
                 </div>

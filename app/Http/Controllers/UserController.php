@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Book;
+use App\Models\TransactionDetail;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
@@ -52,7 +54,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password= Hash::make($request->password);
         $user->fullname = $request->fullname;
-        //confirm_pass
+        // $user->password_confirmation = Hash::make($request->password_confirmation);
         $user->save();
 
         return redirect()->back();
@@ -90,5 +92,35 @@ class UserController extends Controller
         $transaction = Transaction::all();
         $user = User::all();
         return view('transaction_history',compact('transaction','user'));
+    }
+
+    public function transactionDetail(){
+        $transDetail = TransactionDetail::all();
+        $transaction = Transaction::all();
+        $book = Book::all();
+        $user = User::all();
+        return view('transaction_detail',compact('transDetail','user','transaction','book'));
+    }
+    
+    public function updateProfile(Request $request, $id){
+        $user = User::find($id);
+        $user->fullname = $request->fullname;
+
+        $user->save();
+        return redirect()->back();
+    }
+
+    public function changePass(Request $request, $id){
+        $user = User::find($id);
+        $user->password = Hash::make($request->password);
+
+        $user->save();
+        return redirect()->back();
+    }
+
+    public function password(){
+        $user = User::all();
+
+        return view('password',compact('user'));
     }
 }

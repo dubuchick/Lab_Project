@@ -64,5 +64,4 @@ class BookController extends Controller
         $book->delete();
         return redirect()->back();
     }
-
 }

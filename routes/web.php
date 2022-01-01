@@ -39,6 +39,9 @@ Route::post('/login',[UserController::class,'login']);
 Route::get('/logout',[UserController::class,'logout']);
 Route::post('/register',[UserController::class,'register']);
 Route::get('/profile-page',[UserController::class,'profilePage']);
+Route::put('/update-profile/{id}',[UserController::class,'updateProfile']);
+Route::get('/change-password',[UserController::class,'password']);
+// Route::put('/change-password/{id}',[UserController::class,'changePass']);
 
 Route::post('/insert-genre',[GenreController::class,'insertGenre']);
 Route::put('/update-genre/{id}',[GenreController::class,'updateGenre']);
@@ -51,6 +54,7 @@ Route::get('/',[BookController::class,'booksHome']);
 Route::get('/search',[BookController::class,'search']);
 
 Route::get('/transaction-history',[UserController::class,'transactionHistory']);
+Route::get('/transaction-detail',[UserController::class,'transactionDetail']);
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
