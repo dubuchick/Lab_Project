@@ -4,16 +4,16 @@
         <div class="row mt-4">
             <p style="display:none">{{ $user = Auth::user(); }}</p>
             <div class="col-md-3">
-                <p>TransactionID</p>
+                <h6>TransactionID</h6>
             </div>
             <div class="col-md-3">
-                <p>Date</p>
+                <h6>Date</h6>
             </div>
             <div class="col-md-2">
                 
             </div>
             <div class="col-md-4">
-                Action
+                <h6>Action</h6>
             </div>
         </div>
         @foreach ($transaction as $t)

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Genre;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -71,7 +72,7 @@ class BookController extends Controller
 
     public function addtoCart(Request $request, $id){
         $book = Book::find($id);
-
+        $user = User::all();
         $cart = session()->get('cart');
 
         $cart[$id]=[
@@ -83,6 +84,8 @@ class BookController extends Controller
 
         session()->put('cart',$cart);
 
-        return redirect()->back()->with('sucess','Book added to cart successfully!');
+        return redirect()->back()->with('sucess','Book added to cart successfully!',compact('user'));
     }
+
+    
 }

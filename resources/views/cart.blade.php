@@ -2,30 +2,30 @@
 @section('content')
     <div class="container">
         <div class="row mt-4">
-            {{-- <p style="display:none">{{ $user = Auth::user(); }}</p> --}}
+            <p style="display:none">{{ $user = Auth::user(); }}</p>
             <div class="col-md-2">
-                <p>Book Name</p>
+                <h6>Book Name</h6>
             </div>
             <div class="col-md-2">
-                <p>Book Author</p>
+                <h6>Book Author</h6>
             </div>
             <div class="col-md-1">
-                <p>Price</p>
+                <h6>Price</h6>
             </div>
             <div class="col-md-2">
-                <p>Quantity</p>
+                <h6>Quantity</h6>
             </div>
             <div class="col-md-2">
-                <p>Sub Total</p>
+                <h6>Sub Total</h6>
             </div>
             <div class="col-md-2">
-                Action
+                <h6>Action</h6>
             </div>
         </div>
-        {{-- @foreach ($transaction as $t) --}}
-            {{-- @if ($user->id == $t->userid) --}}
-            @if (session('cart'))
+        <?php $total = 0 ?>
+            @if(session('cart'))
                 @foreach (session('cart') as $id=> $details)
+                <?php $total += $details['price'] * $details['quantity']?>
                 <div class="row">
                     <hr>
                     <div class="col-md-2">
@@ -38,28 +38,38 @@
                         <p>{{ $details['price'] }}</p>
                     </div>
                     <div class="col-md-2">
-                        <p>{{ $details['quantity'] }}</p>
+                        @if ($details['quantity'] < 2)
+                            <p>{{ $details['quantity'] }} book</p>  
+                        @else
+                            <p>{{ $details['quantity'] }} books</p> 
+                        @endif
                     </div>
                     <div class="col-md-2">
-                        <p></p>
+                        <p>{{ $details['price'] * $details['quantity']}} </p>
                     </div>
                     <div class="col-sm-3">
                         <a href="#">
                             <button class="btn btn-sm btn-secondary">View Book Detail</button>
                         </a>
                         <a href="#">
-                            <button class="btn btn-sm btn-secondary">Edit</button>
+                            <button class="btn btn-sm btn-primary">Edit</button>
                         </a>
-                        <a href="#">
-                            <button class="btn btn-sm btn-secondary">Remove</button>
-                        </a>
+                        {{-- <form action="/remove-cart" method="post">
+                            {{ csrf_field() }}
+                            {{ method_field('delete') }} --}}
+                            <button class="btn btn-sm btn-danger">Remove</button>
+                        {{-- </form> --}}
                     </div>
                 </div>
-                    @endforeach
-            @endif
-                
-            {{-- @endif --}}
-        {{-- @endforeach --}}
+                @endforeach
+                <hr>
+                <h5>Grand Total: {{ $total }}</h5>
+                <div class="row">
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary">Checkout</button>
+                    </div> 
+                </div>
+            @endif   
     </div> 
     </div>
 @endsection

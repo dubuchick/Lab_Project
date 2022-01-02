@@ -4,28 +4,30 @@
         <div class="row mt-4">
             <p style="display:none">{{ $user = Auth::user(); }}</p>
             <div class="col-md-2">
-                <p>Book Name</p>
+                <h6>Book Name</h6>
             </div>
             <div class="col-md-2">
-                <p>Book Author</p>
+                <h6>Book Author</h6>
             </div>
             <div class="col-md-2">
-                <p>Price</p>
+                <h6>Price</h6>
             </div>
             <div class="col-md-2">
-                <p>Quantity</p>
+                <h6>Quantity</h6>
             </div>
             <div class="col-md-1">
-                <p>Sub Total</p>
+                <h6>Sub Total</h6>
             </div>
             <div class="col-md-3">
-                Action
+                <h6>Action</h6>
             </div>
         </div>
+        <?php $total = 0 ?>
         @foreach ($transaction as $t)
             @if ($user->id == $t->userid)
                 @foreach ( $transDetail as $td)
                     @if ($t->id == $td->transactionid)
+                    <?php $total += $td->quantity * $book[$td->bookid -1]->price ?>
                         <div class="row">
                         <hr>
                         <div class="col-md-2">
@@ -53,7 +55,7 @@
             @endif
         @endforeach
         <hr>
-        <p>Grand Total: IDR</p>
+        <h6>Grand Total: IDR {{ $total }}</h6>
     </div> 
     </div>
 @endsection

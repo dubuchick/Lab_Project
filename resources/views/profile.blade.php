@@ -37,8 +37,5 @@
                 <button class="btn btn-primary">Change Password</button>
             </a>
         </div> 
-        
-            
-        
     </div>
 @endsection

@@ -57,6 +57,7 @@ Route::get('/transaction-history',[UserController::class,'transactionHistory']);
 Route::get('/transaction-detail',[UserController::class,'transactionDetail']);
 Route::get('/cart/{id}',[BookController::class,'addtoCart']);
 Route::get('/cart',[BookController::class,'cart']);
+Route::delete('/remove-cart',[BookController::class,'remove']);
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
