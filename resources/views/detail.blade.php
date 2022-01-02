@@ -31,9 +31,9 @@
                     @foreach($genres as $g)
                         <div class="col-md-4">
                             @if ($g->id ==  $book->genreid)
-                                <input class="form-check-input" type="checkbox" value="" id="checkbox{{ $g->id}}" checked>
+                                <input class="form-check-input" type="checkbox" value="{{ $g->id}}" id="checkbox{{ $g->id}}" checked>
                             @else
-                                <input class="form-check-input" type="checkbox" value="" id="checkbox{{ $g->id}}">
+                                <input class="form-check-input" type="checkbox" value="{{ $g->id}}" id="checkbox{{ $g->id}}">
                             @endif
                             <label class="form-check-label me-2" for="checkbox{{ $g->id }}">{{ $g->name}}</label>
                         </div>
@@ -86,10 +86,10 @@
                 <p class="col-sm-6 ms-4">IDR {{ $book->price}}</p>
             </div>
             <div class="row">
-                <form action="">
+                <form action="/cart/{{ $book->id }}">
                     <div class="col-sm-3 input-group">
                         <span class="input-group-text" id="inputGroup-sizing-default">Quantity</span>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="quantity">
                         <button type="submit" class="btn btn-primary col-sm-2">Add to Cart</button>
                     </div>
                 </form>

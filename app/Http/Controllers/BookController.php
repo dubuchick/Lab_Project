@@ -64,4 +64,25 @@ class BookController extends Controller
         $book->delete();
         return redirect()->back();
     }
+
+    public function cart(){
+        return view('cart');
+    }
+
+    public function addtoCart(Request $request, $id){
+        $book = Book::find($id);
+
+        $cart = session()->get('cart');
+
+        $cart[$id]=[
+            "title"=>$book->title,
+            "quantity"=>$request->quantity,
+            "author"=>$book->author,
+            "price"=>$book->price
+        ];
+
+        session()->put('cart',$cart);
+
+        return redirect()->back()->with('sucess','Book added to cart successfully!');
+    }
 }

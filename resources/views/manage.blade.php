@@ -24,13 +24,15 @@
             </div>
             <div class="row mb-3">
                 <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Genre(s)</label>
-                <div class="form-check col-sm-2 form-check-inline">
+                <div class="col-sm-9">
+                    <div class="row">
                     @foreach ($genre as $gen)
-                        <div class="form-check-inline">
+                        <div class="col-md-4">
                             <input class="form-check-input" type="checkbox" id="checkbox{{$gen->id}}" name="genre" value="{{$gen->id}}">
                             <label for="checkbox{{$gen->id}}" class="form-check-label me-2">{{ $gen->name }}</label>
                         </div>
                     @endforeach
+                    </div>
                 </div>
             </div>
             <div class="row mb-3">

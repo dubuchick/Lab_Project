@@ -47,7 +47,7 @@ class UserController extends Controller
             'fullname' => 'required',
             'vat_number' => 'max:13',
             'password' => 'required|confirmed|min:8',
-            'password_confirmation' =>'min:8'
+            'password_confirmation' =>'min:8|same:password'
         ];
         $user = new User();
         $user->roleid = 2;

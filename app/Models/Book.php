@@ -19,4 +19,5 @@ class Book extends Model
 
     	return $this->hasMany(TransactionDetail::class);
     }
+
 }

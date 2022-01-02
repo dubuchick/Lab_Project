@@ -42,7 +42,9 @@
             @endif
             @if(auth()->user()->roleid == '2')
                 <div class="col-md-auto mt-2">
+                    <a href="/cart" style="color: white">
                     <p class="">View Cart</p>
+                    </a>
                 </div>
                 <div class="col-md-auto mt-2">
                     <a href="/transaction-history" style="color: white">
