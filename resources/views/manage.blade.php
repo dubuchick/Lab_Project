@@ -27,7 +27,7 @@
                 <div class="form-check col-sm-2 form-check-inline">
                     @foreach ($genre as $gen)
                         <div class="form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="checkbox{{$gen->id}}" name="genre">
+                            <input class="form-check-input" type="checkbox" id="checkbox{{$gen->id}}" name="genre" value="{{$gen->id}}">
                             <label for="checkbox{{$gen->id}}" class="form-check-label me-2">{{ $gen->name }}</label>
                         </div>
                     @endforeach

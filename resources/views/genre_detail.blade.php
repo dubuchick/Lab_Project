@@ -17,7 +17,7 @@
         </div>
         <div class="row mt-3 mb-3">
             <div class="container col-md-1">
-                <button type="submit" class="btn btn-primary">Insert</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </div> 
         </div>
         </form>
@@ -34,19 +34,22 @@
             </div>
         </div>
         @foreach ($book as $b)
-        <div class="row">
-            <hr>
-        </div>
-        <div class="row">
-            <div class="col-md-8">
-                <p>{{ $b->title }}</p>
+            @if ($b->genreid == $genre->id)
+            <div class="row">
+                <hr>
             </div>
-            <div class="col md-3">
-                <a href="/book-detail/{{ $b->id }}">
-                    <button class="btn btn-sm btn-secondary">View Book Details</button>
-                </a>   
+            <div class="row">
+                <div class="col-md-8">
+                    <p>{{ $b->title }}</p>
+                </div>
+                <div class="col md-3">
+                    <a href="/book-detail/{{ $b->id }}">
+                        <button class="btn btn-sm btn-secondary">View Book Details</button>
+                    </a>   
+                </div>
             </div>
-        </div>
+            @endif
+
         @endforeach
         
     </div>
