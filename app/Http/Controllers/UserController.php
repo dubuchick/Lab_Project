@@ -22,11 +22,11 @@ class UserController extends Controller
     public function login(Request $request){
         $email = $request->email;
         $password = $request->password;
-        $remember = $request->remember;
+        $remember_me = $request->remember_me;
         $isValid = auth()->attempt(['email'=>$email,'password'=>$password]);
 
         if($isValid){
-            if($remember){
+            if($remember_me){
                 Cookie::queue('email',$email,10080);
                 Cookie::queue('password',$password,10080);
             }
@@ -111,6 +111,18 @@ class UserController extends Controller
         return redirect()->back();
     }
 
+    public function updateUserDetail(Request $request, $id){
+        $user = User::find($id);
+        $user->fullname = $request->fullname;
+        $user->email = $request->email;
+        if($request->rolename == "Admin"){
+            $user->roleid = 1;
+        }else{
+            $user->roleid = 2;
+        }
+        $user->save();
+        return redirect()->back();
+    }
     public function changePass(Request $request, $id){
         $user = User::find($id);
         $user->password = Hash::make($request->password);
