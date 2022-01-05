@@ -13,21 +13,36 @@
                         <div style="background-color: whitesmoke" class="form-outline col-2 p-2" >
                             <ion-icon name="mail-outline" size="large"></ion-icon>
                         </div>
-                        <input type="email" class="form-control form-control-lg" placeholder="email" name="email">
+                        <input type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" placeholder="email" name="email">
+                        <div class="row">
+                            <span style="color: red">@error('email')
+                                {{ 'Email is required' }}
+                            @enderror</span>
+                        </div>
                     </div>
                     
                     <div class="form-outline mb-4 d-flex justify-content-start align-items-center">
                         <div style="background-color: whitesmoke" class="form-outline col-2 p-2" >
                             <ion-icon name="person-outline" size="large"></ion-icon>
                         </div>
-                        <input type="text" class="form-control form-control-lg" placeholder="fullname" name="fullname"/>
+                        <input type="text" class="form-control form-control-lg @error('fullname') is-invalid @enderror" placeholder="fullname" name="fullname"/>
+                        <div class="row">
+                            <span style="color: red">@error('fullname')
+                                {{ 'Name is required' }}
+                            @enderror</span>
+                        </div>
                     </div>
 
                     <div class="form-outline mb-4 d-flex justify-content-start align-items-center">
                         <div style="background-color: whitesmoke" class="form-outline col-2 p-2" >
                             <ion-icon name="lock-closed-outline"size="large"></ion-icon>
                         </div>
-                        <input type="password" class="form-control form-control-lg" placeholder="password" name="password"/>
+                        <input type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" placeholder="password" name="password"/>
+                        <div class="row">
+                            <span style="color: red">@error('password')
+                                {{ 'Pasword is required' }}
+                            @enderror</span>
+                        </div>
                     </div>
 
                     <div class="form-outline mb-4 d-flex justify-content-start align-items-center">

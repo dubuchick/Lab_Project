@@ -11,12 +11,18 @@ use Illuminate\Support\Facades\Storage;
 class BookController extends Controller
 {
     public function insertBook(Request $request){
+        $this->validate($request,[
+            'title'=>'required',
+            'author'=>'required',
+            'synopsis'=>'required',
+            'cover'=>'mimes:jpeg,jpg,png,gif|required|max:10000|image',
+            'genreid'=>'accepted'
+        ]);
         $book = new Book();
         $book->title = $request->title;
         $book->genreid = $request->genre;
         $book->author = $request->author;
         $book->synopsis = $request->synopsis;
-        //image
         $book->price = $request->price;
 
         $file = $request->file('cover');
@@ -31,6 +37,34 @@ class BookController extends Controller
         //ke previous page
         return redirect()->back();
     }
+
+    public function updateBook(Request $request, $id){
+        $book = Book::find($id);
+        $this->validate($request,[
+            'title'=>'required',
+            'author'=>'required',
+            'synopsis'=>'required',
+            'cover'=>'mimes:jpeg,jpg,png,gif|required|max:10000|image',
+            'genreid'=>'accepted'
+        ]);
+        $book->title = $request->title != null ? $request->title : $book->title;
+        $book->author = $request->author != null ? $request->author : $book->author;
+        $book->synopsis = $request->synopsis != null ? $request->synopsis : $book->synopsis;
+        $book->genreid = $request->genre;
+        $book->price = $request->price != null ? $request->price : $book->price;
+        $file = $request->file('cover');
+        if($file != null){
+            $imageName = time().".".$file->getClientOriginalExtension();
+            Storage::putFileAs('public/images',$file,$imageName);
+
+            Storage::delete('public/'.$book->cover);
+            $book->cover = 'images/'.$imageName;
+        }
+        $book->save();
+
+        return redirect()->back();
+    }
+
     //buat list books di manage page
     public function showBooks(){
         $books = Book::all();
@@ -69,7 +103,7 @@ class BookController extends Controller
     public function cart(){
         return view('cart');
     }
-
+    
     public function addtoCart(Request $request, $id){
         $book = Book::find($id);
         $user = User::all();
@@ -84,8 +118,18 @@ class BookController extends Controller
 
         session()->put('cart',$cart);
 
-        return redirect()->back()->with('sucess','Book added to cart successfully!',compact('user'));
+        return redirect()->back()->with('success','Book added to cart successfully!',compact('user'));
     }
 
-    
+    public function deleteCart($id){
+        $book = Book::find($id);
+        $cart = session('cart');
+        foreach ($book as $key=>$value){
+            if($value['id'] == $id){
+                unset($book[$key]);
+            }
+        }
+        $request->session()->push('cart',$book);
+        return redirect()->back();
+    }
 }

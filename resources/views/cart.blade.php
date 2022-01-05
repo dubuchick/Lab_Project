@@ -48,16 +48,16 @@
                         <p>{{ $details['price'] * $details['quantity']}} </p>
                     </div>
                     <div class="col-sm-3">
-                        <a href="#">
+                        <a href="/book-detail/{{ $id }}">
                             <button class="btn btn-sm btn-secondary">View Book Detail</button>
                         </a>
                         <a href="#">
                             <button class="btn btn-sm btn-primary">Edit</button>
                         </a>
-                        {{-- <form action="/remove-cart" method="post">
-                            {{ csrf_field() }}
+                        {{-- <form action="/delete-cart/{{ $id }}" method="post"> --}}
+                            {{-- {{ csrf_field() }}
                             {{ method_field('delete') }} --}}
-                            <button class="btn btn-sm btn-danger">Remove</button>
+                            <button class="btn btn-sm btn-danger" type="submit">Remove</button>
                         {{-- </form> --}}
                     </div>
                 </div>
@@ -69,6 +69,11 @@
                         <button type="submit" class="btn btn-primary">Checkout</button>
                     </div> 
                 </div>
+            @else
+            <div class="row">
+                <hr>
+                <h5>No data</h5>
+            </div>
             @endif   
     </div> 
     </div>

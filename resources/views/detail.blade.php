@@ -4,7 +4,9 @@
 @if(Auth::check())
     @if(auth()->user()->roleid == '1')
 <div class= "p-3 border">
-    <form>
+    <form action="/update-book/{{ $book->id }}" method="POST" enctype="multipart/form-data">
+        {{csrf_field()}}
+        {{ method_field('put') }}
         <p class="fs-4">{{ $book->title }}'s Book Detail</p>
         <div class="row mb-3">
             <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Name</label>

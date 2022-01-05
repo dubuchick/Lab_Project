@@ -20,6 +20,10 @@ class UserController extends Controller
     }
 
     public function login(Request $request){
+        $request->validate([
+            'email'=> 'required|email',
+            'password'=> 'required'
+        ]);
         $email = $request->email;
         $password = $request->password;
         $remember_me = $request->remember_me;
@@ -43,22 +47,25 @@ class UserController extends Controller
     }
 
     public function register(Request $request){
-        $validation = [
-            'email' => 'required|email',
+        $this->validate($request,[
+            'email' => 'required|email|unique',
             'fullname' => 'required',
             'vat_number' => 'max:13',
             'password' => 'required|confirmed|min:8',
             'password_confirmation' =>'min:8|same:password'
-        ];
+        ]); 
         $user = new User();
         $user->roleid = 2;
         $user->email = $request->email;
         $user->password= Hash::make($request->password);
         $user->fullname = $request->fullname;
-        // $user->password_confirmation = Hash::make($request->password_confirmation);
-        $user->save();
+        $saved = $user->save();
 
-        return redirect()->back();
+        if($saved){
+            return redirect('/')->with('success',"Account Successfully Registered");
+        }else{
+            return back()->withErrors(new MessageBag(['Invalid data']));
+        }
     }
 
     public function registerPage(){
@@ -120,13 +127,6 @@ class UserController extends Controller
         }else{
             $user->roleid = 2;
         }
-        $user->save();
-        return redirect()->back();
-    }
-    public function changePass(Request $request, $id){
-        $user = User::find($id);
-        $user->password = Hash::make($request->password);
-
         $user->save();
         return redirect()->back();
     }

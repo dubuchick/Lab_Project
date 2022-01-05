@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PasswordController;
 use Illuminate\Support\Facades\Auth;
 
 Route::group(['middleware'=>'guest'],function(){
@@ -26,20 +27,19 @@ Route::group(['middleware'=>'member'],function(){
 });
 
 Route::get('/profile-page',[UserController::class,'profilePage'])->middleware('loggedin');
-
+Route::get('/change-password',[PasswordController::class,'view'])->middleware('loggedin');
 Route::delete('/delete-user/{id}',[UserController::class,'deleteUser']);
 Route::post('/login',[UserController::class,'login']);
 Route::get('/logout',[UserController::class,'logout']);
 Route::post('/register',[UserController::class,'register']);
 Route::put('/update-profile/{id}',[UserController::class,'updateProfile']);
-Route::get('/change-password',[UserController::class,'password']);
 Route::put('/updateUserDetail/{id}',[UserController::class,'updateUserDetail']);
-// Route::put('/change-password/{id}',[UserController::class,'changePass']);
 
 Route::post('/insert-genre',[GenreController::class,'insertGenre']);
 Route::put('/update-genre/{id}',[GenreController::class,'updateGenre']);
 Route::delete('/delete-genre/{id}',[GenreController::class,'deleteGenre']);
 
+Route::put('/update-book/{id}',[BookController::class,'updateBook']);
 Route::get('/book-detail/{id}',[BookController::class,'showBookDetail']);
 Route::post('/manage-book',[BookController::class,'insertBook']);
 Route::delete('/delete-book/{id}',[BookController::class,'deleteBook']);
@@ -47,4 +47,6 @@ Route::get('/',[BookController::class,'booksHome']);
 Route::get('/search',[BookController::class,'search']);
 
 Route::get('/cart/{id}',[BookController::class,'addtoCart']);
-Route::delete('/remove-cart',[BookController::class,'remove']);
+Route::delete('/delete-cart/{id}',[BookController::class,'deleteCart']);
+
+Route::post('/change-password',[PasswordController::class,'changePass']);
