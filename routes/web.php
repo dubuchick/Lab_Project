@@ -47,6 +47,6 @@ Route::get('/',[BookController::class,'booksHome']);
 Route::get('/search',[BookController::class,'search']);
 
 Route::get('/cart/{id}',[BookController::class,'addtoCart']);
-Route::delete('/delete-cart/{id}',[BookController::class,'deleteCart']);
+Route::delete('/delete-cart',[BookController::class,'deleteCart']);
 
 Route::post('/change-password',[PasswordController::class,'changePass']);

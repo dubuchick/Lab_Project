@@ -7,17 +7,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    
-
 </head>
 <body>
-
 <div class="container-fluid bg-primary text-white">
-    {{-- <div class="row mx-auto my-auto">
-        <p class="text-start col-md-6">Book Store</p>
-        <p class="text-end col-md-5">Register</p>
-        <p class="text-end col-md-1">Login</p>
-    </div> --}}
     <div class="row">
         <div class="col mt-2">
             <p class="">Book Store</p>
@@ -78,23 +70,16 @@
     </div>
 </div>
 <div class="container">
-
 </div>
 <div class="container mt-5">
     <div class="row ">
-
         <div class="col-12 p-3">
             @yield('content')
         </div>
-
         <div class = "p-3 col-2">
-
         </div>
-
     </div>
-
     <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
 </div>
 <div class="container-fluid p-3 mt-5 bg-primary text-white">
     <div class="text-start">

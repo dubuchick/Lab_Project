@@ -11,19 +11,34 @@
         <div class="row mb-3">
             <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-10">
-                <input class="form-control" type="text" aria-label="default input example" value="{{ $book->title }}">
+                <input class="form-control @error('title') is-invalid @enderror" type="text" aria-label="default input example" value="{{ $book->title }}" name="title">
+                <div class="row">
+                    <span style="color: red">@error('title')
+                        {{ 'Title is required' }}
+                    @enderror</span>
+                </div>
             </div>
         </div>
         <div class="row mb-3">
             <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Author</label>
             <div class="col-sm-10">
-                <input class="form-control" type="text" aria-label="default input example" value="{{ $book->author}}">
+                <input class="form-control @error('author') is-invalid @enderror" type="text" aria-label="default input example" value="{{ $book->author}}" name="author">
+                <div class="row">
+                    <span style="color: red">@error('author')
+                        {{ 'Author is required' }}
+                    @enderror</span>
+                </div>
             </div>
         </div>
         <div class="row mb-3">
             <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Synopsis</label>
             <div class="col-sm-10">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="10">{{ $book->synopsis}}</textarea>
+                <textarea class="form-control @error('synopsis') is-invalid @enderror" id="exampleFormControlTextarea1" rows="10" name="synopsis">{{ $book->synopsis}}</textarea>
+                <div class="row">
+                    <span style="color: red">@error('author')
+                        {{ 'Author is required' }}
+                    @enderror</span>
+                </div>
             </div>
         </div>
         <div class="row mb-3">
@@ -33,27 +48,42 @@
                     @foreach($genres as $g)
                         <div class="col-md-4">
                             @if ($g->id ==  $book->genreid)
-                                <input class="form-check-input" type="checkbox" value="{{ $g->id}}" id="checkbox{{ $g->id}}" checked>
+                                <input class="form-check-input @error('genre') is-invalid @enderror" type="checkbox" value="{{ $g->id}}" id="checkbox{{ $g->id}}" name="genre" checked>
                             @else
-                                <input class="form-check-input" type="checkbox" value="{{ $g->id}}" id="checkbox{{ $g->id}}">
+                                <input class="form-check-input @error('synopsis') is-invalid @enderror" type="checkbox" value="{{ $g->id}}" id="checkbox{{ $g->id}}" name="genre">
                             @endif
-                            <label class="form-check-label me-2" for="checkbox{{ $g->id }}">{{ $g->name}}</label>
+                            <label class="form-check-label me-2 " for="checkbox{{ $g->id }}">{{ $g->name}}</label>
                         </div>
                     @endforeach
                 </div>
+                <div class="row">
+                    <span style="color: red">@error('genre')
+                        {{ 'Genre is required' }}
+                    @enderror</span>
+                </div>  
             </div>
         </div>
         <div class="row mb-3">
             <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Price</label>
             <div class="col-sm-10">
-                <input class="form-control" type="text" aria-label="default input example" value="{{ $book->price}}">
+                <input class="form-control @error('price') is-invalid @enderror" type="text" aria-label="default input example" value="{{ $book->price}}" name="price">
+                <div class="row">
+                    <span style="color: red">@error('price')
+                        {{ 'Price is required'}}
+                    @enderror</span>
+                </div>
             </div>
         </div>
         <div class="row mb-3">
             <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Cover</label>
             <div class="col-sm-10">
                 <img src="{{\Illuminate\Support\Facades\Storage::url($book->cover)}}" alt=""style="width: 13rem; height: 18rem;">
-                <input class="form-control" type="file" id="formFile">
+                <input class="form-control @error('cover') is-invalid @enderror" name="cover" type="file" id="formFile">
+                <div class="row">
+                    <span style="color: red">@error('cover')
+                        {{ 'Cover is required'}}
+                    @enderror</span>
+                </div>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
@@ -91,7 +121,7 @@
                 <form action="/cart/{{ $book->id }}">
                     <div class="col-sm-3 input-group">
                         <span class="input-group-text" id="inputGroup-sizing-default">Quantity</span>
-                        <input type="text" class="form-control" name="quantity">
+                        <input type="text" class="form-control" name="quantity" value="1">
                         <button type="submit" class="btn btn-primary col-sm-2">Add to Cart</button>
                     </div>
                 </form>

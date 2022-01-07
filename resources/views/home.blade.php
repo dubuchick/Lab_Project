@@ -11,11 +11,9 @@
                     <button class="btn btn-primary">Search</button>
                 </div>
             </div>
-            
         </form>
         <div class="row mt-4">
             <div class="col-1">
-
             </div>
             <div class="col-6">
                 <a href="/">

@@ -12,7 +12,12 @@
                 <p>Name</p>
             </div>
             <div class="col-md-6">
-                <input type="text" placeholder="{{ $user->fullname}}" class="form-control" name="fullname">
+                <input type="text" placeholder="{{ $user->fullname}}" class="form-control @error('fullname') is-invalid @enderror" name="fullname">
+                <div class="row">
+                    <span style="color: red">@error('name')
+                        {{ 'Name is required' }}
+                    @enderror</span>
+                </div>
             </div>
         </div>
         <div class="row mt-3">
@@ -20,7 +25,12 @@
                 <p>Email</p>
             </div>
             <div class="col-md-6">
-                <input type="text" placeholder="{{ $user->email}}" class="form-control" name="email">
+                <input type="text" placeholder="{{ $user->email}}" class="form-control @error('email') is-invalid @enderror" name="email">
+                <div class="row">
+                    <span style="color: red">@error('email')
+                        {{ 'Email is required' }}
+                    @enderror</span>
+                </div>
             </div>
         </div>
         <div class="row mt-3">
@@ -28,7 +38,12 @@
                 <p>Role</p>
             </div>
             <div class="col-md-6">
-                <input type="text" placeholder="{{ $role[$user->roleid -1]->rolename}}" class="form-control" name="rolename">
+                <input type="text" placeholder="{{ $role[$user->roleid -1]->rolename}}" class="form-control @error('rolename') is-invalid @enderror" name="rolename">
+                <div class="row">
+                    <span style="color: red">@error('rolename')
+                        {{ 'Role is required' }}
+                    @enderror</span>
+                </div>
             </div>
         </div>
         <div class="row mt-3 mb-3">

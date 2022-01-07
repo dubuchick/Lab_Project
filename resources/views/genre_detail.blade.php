@@ -12,7 +12,12 @@
                 <p>Name</p>
             </div>
             <div class="col-md-6">
-                <input type="text" placeholder="{{ $genre->name }}" class="form-control" name="name">
+                <input type="text" placeholder="{{ $genre->name }}" class="form-control  @error('name') is-invalid @enderror" name="name">
+                <div class="row">
+                    <span style="color: red">@error('name')
+                        {{ 'Genre is required' }}
+                    @enderror</span>
+                </div> 
             </div>
         </div>
         <div class="row mt-3 mb-3">

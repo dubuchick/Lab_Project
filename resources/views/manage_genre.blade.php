@@ -11,7 +11,10 @@
                 <p>Name</p>
             </div>
             <div class="col-md-6">
-                <input type="text" class="form-control" name="name">
+                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name">
+                <span style="color: red">@error('name')
+                    {{ 'Name is required' }}
+                @enderror</span>
             </div>
         </div>
         <div class="row mt-3 mb-3">
@@ -38,16 +41,6 @@
             <div class="col-md-5">
                 <p>{{ $gen->name }}</p>
             </div>
-            {{-- <div class="col md-7">
-                <a href="/genre-detail/{{ $gen->id }}">
-                    <button class="btn btn-sm btn-secondary">View Details</button>
-                </a>
-                <form action="/delete-genre/{{ $gen->id }}">
-                <a href="">
-                    <button class="btn btn-sm btn-danger" type="submit">Delete</button>
-                </a>
-                </form>
-            </div> --}}
             <div class="col-sm-auto">
                 <a href="/genre-detail/{{ $gen->id }}">
                     <button class="btn btn-sm btn-secondary">View Details</button>

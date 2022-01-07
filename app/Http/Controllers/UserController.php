@@ -7,6 +7,7 @@ use App\Models\Role;
 use App\Models\Book;
 use App\Models\TransactionDetail;
 use App\Models\Transaction;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
@@ -111,14 +112,26 @@ class UserController extends Controller
     }
     
     public function updateProfile(Request $request, $id){
+        $rules = [
+            'fullname'=> 'required',
+        ];
         $user = User::find($id);
         $user->fullname = $request->fullname;
+        $validator = Validator::make($request->all(),$rules);
 
+        if($validator->fails()){
+            return back()->withErrors($validator);
+        }
         $user->save();
         return redirect()->back();
     }
 
     public function updateUserDetail(Request $request, $id){
+        $rules = [
+            'fullname'=> 'required',
+            'email'=>'required|email',
+            'rolename'=> 'required|in:Admin,Member'
+        ];
         $user = User::find($id);
         $user->fullname = $request->fullname;
         $user->email = $request->email;
@@ -126,6 +139,11 @@ class UserController extends Controller
             $user->roleid = 1;
         }else{
             $user->roleid = 2;
+        }
+        $validator = Validator::make($request->all(),$rules);
+
+        if($validator->fails()){
+            return back()->withErrors($validator);
         }
         $user->save();
         return redirect()->back();

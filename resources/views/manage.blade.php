@@ -8,23 +8,33 @@
                 <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
                     <input class="form-control @error('title') is-invalid @enderror" type="text" aria-label="default input example" name="title">
-                </div>
-                <div class="row">
-                    <span style="color: red">@error('email')
-                        {{ 'Title is required'}}
-                    @enderror</span>
+                    <div class="row">
+                        <span style="color: red">@error('title')
+                            {{ 'Name is required'}}
+                        @enderror</span>
+                    </div>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Author</label>
                 <div class="col-sm-10">
                     <input class="form-control @error('author') is-invalid @enderror" type="text" aria-label="default input example" name="author">
+                    <div class="row">
+                        <span style="color: red">@error('author')
+                            {{ 'Author is required'}}
+                        @enderror</span>
+                    </div>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Synopsis</label>
                 <div class="col-sm-10">
                     <textarea class="form-control @error('synopsis') is-invalid @enderror" id="exampleFormControlTextarea1" rows="10" name="synopsis"></textarea>
+                    <div class="row">
+                        <span style="color: red">@error('synopsis')
+                            {{ 'Synopsis is required'}}
+                        @enderror</span>
+                    </div>
                 </div>
             </div>
             <div class="row mb-3">
@@ -49,12 +59,22 @@
                 <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Price</label>
                 <div class="col-sm-10">
                     <input class="form-control @error('price') is-invalid @enderror" name="price" type="text" aria-label="default input example">
+                    <div class="row">
+                        <span style="color: red">@error('price')
+                            {{ 'Price is required'}}
+                        @enderror</span>
+                    </div>
                 </div>
             </div>
             <div class="row mb-3">
                 <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Cover</label>
                 <div class="col-sm-10">
                     <input class="form-control @error('cover') is-invalid @enderror" name="cover" type="file" id="formFile">
+                    <div class="row">
+                        <span style="color: red">@error('cover')
+                            {{ 'Cover is required'}}
+                        @enderror</span>
+                    </div>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Import</button>

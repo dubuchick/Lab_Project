@@ -14,7 +14,12 @@
                 <p>Name</p>
             </div>
             <div class="col-md-6">
-                <input type="text" placeholder="{{ $user->fullname}}" class="form-control" name="fullname">
+                <input type="text" placeholder="{{ $user->fullname}}" class="form-control @error('fullname') is-invalid @enderror" name="fullname">
+                <div class="row">
+                    <span style="color: red">@error('name')
+                        {{ 'Name is required' }}
+                    @enderror</span>
+                </div>
             </div>
         </div>
         <div class="row mt-3">
@@ -32,10 +37,13 @@
             </div> 
         </form>
         </div>
-        <div class="col-md-auto">
-            <a href="{{ url('/change-password') }}">
-                <button class="btn btn-primary">Change Password</button>
-            </a>
-        </div> 
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-2 py-2">
+                <a href="{{ url('/change-password') }}">
+                    <button class="btn btn-primary">Change Password</button>
+                </a>
+            </div> 
+        </div>
     </div>
 @endsection

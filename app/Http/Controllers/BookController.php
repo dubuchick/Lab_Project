@@ -6,18 +6,21 @@ use App\Models\Book;
 use App\Models\Genre;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
 {
     public function insertBook(Request $request){
-        $this->validate($request,[
+        $rules = [
             'title'=>'required',
             'author'=>'required',
             'synopsis'=>'required',
+            'price'=>'required|integer',
             'cover'=>'mimes:jpeg,jpg,png,gif|required|max:10000|image',
-            'genreid'=>'accepted'
-        ]);
+            'genre'=>'accepted'
+        ];
+       
         $book = new Book();
         $book->title = $request->title;
         $book->genreid = $request->genre;
@@ -31,7 +34,11 @@ class BookController extends Controller
         Storage::putFileAs('public/images',$file,$imageName);
 
         $book->cover = 'images/'.$imageName;
+        $validator = Validator::make($request->all(),$rules);
 
+        if($validator->fails()){
+            return back()->withErrors($validator);
+        }
         $book->save();
 
         //ke previous page
@@ -40,18 +47,18 @@ class BookController extends Controller
 
     public function updateBook(Request $request, $id){
         $book = Book::find($id);
-        $this->validate($request,[
+        $rules = [
             'title'=>'required',
             'author'=>'required',
             'synopsis'=>'required',
             'cover'=>'mimes:jpeg,jpg,png,gif|required|max:10000|image',
             'genreid'=>'accepted'
-        ]);
-        $book->title = $request->title != null ? $request->title : $book->title;
-        $book->author = $request->author != null ? $request->author : $book->author;
-        $book->synopsis = $request->synopsis != null ? $request->synopsis : $book->synopsis;
+        ];
+        $book->title = $request->title;
+        $book->author = $request->author;
+        $book->synopsis = $request->synopsis;
         $book->genreid = $request->genre;
-        $book->price = $request->price != null ? $request->price : $book->price;
+        $book->price = $request->price;
         $file = $request->file('cover');
         if($file != null){
             $imageName = time().".".$file->getClientOriginalExtension();
@@ -59,6 +66,11 @@ class BookController extends Controller
 
             Storage::delete('public/'.$book->cover);
             $book->cover = 'images/'.$imageName;
+        }
+        $validator = Validator::make($request->all(),$rules);
+
+        if($validator->fails()){
+            return back()->withErrors($validator);
         }
         $book->save();
 
@@ -121,15 +133,10 @@ class BookController extends Controller
         return redirect()->back()->with('success','Book added to cart successfully!',compact('user'));
     }
 
-    public function deleteCart($id){
-        $book = Book::find($id);
-        $cart = session('cart');
-        foreach ($book as $key=>$value){
-            if($value['id'] == $id){
-                unset($book[$key]);
-            }
-        }
-        $request->session()->push('cart',$book);
+    public function deleteCart(){
+        session()->forget('cart');
         return redirect()->back();
     }
+
+    
 }
