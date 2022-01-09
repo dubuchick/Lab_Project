@@ -12,7 +12,9 @@
 <div class="container-fluid bg-primary text-white">
     <div class="row">
         <div class="col mt-2">
-            <p class="">Book Store</p>
+            <a href="/">
+                <p class="" style="color: white">Book Store</p>
+            </a> 
         </div>
         @auth()
             @if(auth()->user()->roleid == '1')
@@ -64,9 +66,6 @@
             </a>
         </div>
         @endauth()
-        {{-- <div class="col-md-auto mt-2">
-            <p>Hello, member</p>
-        </div> --}}
     </div>
 </div>
 <div class="container">

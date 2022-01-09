@@ -52,7 +52,8 @@ class BookController extends Controller
             'author'=>'required',
             'synopsis'=>'required',
             'cover'=>'mimes:jpeg,jpg,png,gif|required|max:10000|image',
-            'genreid'=>'accepted'
+            'genreid'=>'accepted',
+            'price'=>'required'
         ];
         $book->title = $request->title;
         $book->author = $request->author;
@@ -138,5 +139,4 @@ class BookController extends Controller
         return redirect()->back();
     }
 
-    
 }

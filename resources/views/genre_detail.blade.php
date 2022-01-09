@@ -54,8 +54,6 @@
                 </div>
             </div>
             @endif
-
         @endforeach
-        
     </div>
 @endsection

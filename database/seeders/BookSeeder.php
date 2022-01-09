@@ -30,7 +30,7 @@ class BookSeeder extends Seeder
                 'author'=> 'Herge',
                 'synopsis'=>'Tintin in the Congo is the second volume of The Adventures of Tintin,
                 the comics series by Belgian cartoonist Hergé.',
-                'cover'=>'images/1639585852.jpg',
+                'cover'=>'images\1641723946.jpg',
                 'price'=>'50000'
             ],
             [
