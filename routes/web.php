@@ -50,3 +50,5 @@ Route::get('/cart/{id}',[BookController::class,'addtoCart']);
 Route::delete('/delete-cart',[BookController::class,'deleteCart']);
 
 Route::post('/change-password',[PasswordController::class,'changePass']);
+
+Route::get('session/get',[BookController::class,'accessSessionData']);

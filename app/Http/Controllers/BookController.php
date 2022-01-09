@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Genre;
+use App\Models\Transaction;
+use App\Models\TransactionDetail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -20,7 +22,7 @@ class BookController extends Controller
             'cover'=>'mimes:jpeg,jpg,png,gif|required|max:10000|image',
             'genre'=>'accepted'
         ];
-       
+
         $book = new Book();
         $book->title = $request->title;
         $book->genreid = $request->genre;
@@ -116,7 +118,7 @@ class BookController extends Controller
     public function cart(){
         return view('cart');
     }
-    
+
     public function addtoCart(Request $request, $id){
         $book = Book::find($id);
         $user = User::all();
@@ -138,5 +140,22 @@ class BookController extends Controller
         session()->forget('cart');
         return redirect()->back();
     }
+
+    public function checkout(Request $request){
+
+        $cart = $request->session()->get('cart');
+
+        dd($cart);
+
+
+
+    }
+
+    public function accessSessionData(Request $request) {
+        if($request->session()->has('cart'))
+            $cart = $request->session()->get('cart');
+            dd($cart);
+
+     }
 
 }
